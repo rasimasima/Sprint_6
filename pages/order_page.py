@@ -3,9 +3,13 @@ import re
 from pages.base_page import BasePage
 from locators import OrderPageLocators as Locators
 import allure
+from selenium.webdriver.support.wait import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
+from locators import BasePageLocators
 
 
 class OrderPage(BasePage):
+    
     @allure.step('Ввод имени')
     def input_last_name(self, first_name: str):
         return self.find_element(Locators.FIRST_NAME_INPUT).send_keys(first_name)

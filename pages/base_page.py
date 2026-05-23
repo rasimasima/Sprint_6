@@ -21,3 +21,10 @@ class BasePage:
     @allure.step('Получить текущий URL')
     def current_url(self):
         return self.driver.current_url
+    
+    @allure.step('Ждём и ищем элемент')
+    def wait_for_element_visible(self, locator, timeout=10):
+        return WebDriverWait(self.driver, timeout).until(
+            EC.visibility_of_element_located(locator),
+            message=f"Элемент с локатором {locator} не "
+                    f"стал видимым в течение {timeout} секунд.")

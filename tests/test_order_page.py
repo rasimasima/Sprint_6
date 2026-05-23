@@ -17,7 +17,7 @@ class TestYaScooterOrderPage:
     @pytest.mark.parametrize('data_set', ['data_set1', 'data_set2'])
     def test_order_page_create_order_and_go_order_status(self, driver, data_set):
         home_page = HomePage(driver)
-        home_page.click_cookie_accept()
+        home_page.click_accept_order()
         home_page.click_top_order_button()
         order_page = OrderPage(driver)
         order_page.go_to_site(Urls.order_page)
